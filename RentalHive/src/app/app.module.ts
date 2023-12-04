@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/dashboard/header/header.component';
-import { FooterComponent } from './components/dashboard/footer/footer.component';
 import { HeadComponent } from './components/dashboard/head/head.component';
 import { ScriptComponent } from './components/dashboard/script/script.component';
 import { EquipmentsComponent } from './components/dashboard/equipments/equipments.component';
@@ -18,8 +16,6 @@ import { SideBarComponent } from './components/dashboard/side-bar/side-bar.compo
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     HeadComponent,
     ScriptComponent,
     EquipmentsComponent,
