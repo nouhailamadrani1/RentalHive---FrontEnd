@@ -12,6 +12,8 @@ import { UsersComponent } from './components/dashboard/users/users.component';
 import { ContractsComponent } from './components/dashboard/contracts/contracts.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SideBarComponent } from './components/dashboard/side-bar/side-bar.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { SideBarComponent } from './components/dashboard/side-bar/side-bar.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
