@@ -13,6 +13,8 @@ export class EquipmentFormComponent implements OnInit {
   @Input() equipment: any = {};
   @Output() saveEquipment = new EventEmitter<any>();
 
+  isAdding: boolean = false;
+
   constructor(
       private equipmentService: EquipmentServiceService ,    
       private router: Router,
@@ -21,6 +23,7 @@ export class EquipmentFormComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.queryParams['id']);
+    this.isAdding = !id;
     if (id) {
       this.equipmentService.getEquipmentById(id).subscribe(equipment => {
         this.equipment = equipment;
@@ -29,19 +32,26 @@ export class EquipmentFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // Call the addEquipment method in the service
-    this.equipmentService.addEquipment(this.equipment).subscribe(
-      response => {
-        // Emit the saved equipment data to the parent component
-        this.saveEquipment.emit(response);
+    if (this.isAdding) {
+      this.equipmentService.addEquipment(this.equipment).subscribe(
+        response => {
         console.log('Equipment saved successefully');
-        // Redirect to /Equipments
         this.router.navigate(['/Equipments']);
-      },
-      error => {
-        // Handle error, log, or display a user-friendly message
-        console.error('Error adding equipment:', error);
-      }
-    );
+        },
+        error => {
+          console.error('Error adding equipment:', error);
+        }
+      );
+    } else {
+      this.equipmentService.updateEquipment(this.equipment.id, this.equipment).subscribe(
+        response => {
+          console.log('Equipment updated successefully');
+          this.router.navigate(['/Equipments']);
+        },
+        error => {
+          console.log('Equipment update FAILED');
+        }
+      );
+    }
   }
 }
