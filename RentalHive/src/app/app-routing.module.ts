@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { EstimatesComponent } from './components/dashboard/estimates/estimates.component';
 import { UsersComponent } from './components/dashboard/users/users.component';
 import { UserFormComponent } from './components/dashboard/user-form/user-form.component';
+import { EquipmentFormComponent } from './components/dashboard/equipment-form/equipment-form.component';
 
 
 
@@ -13,6 +14,13 @@ const routes: Routes = [
     path : 'Equipments',
     component : EquipmentsComponent ,
     title : 'Equipments Page'
+  },{
+    path: 'Equipments',
+    
+    title: 'Equipments Page',
+    children: [
+      { path: 'add', component: EquipmentFormComponent, title: 'Add Equipment Page' }
+    ]
   },
   {
     path : 'Estimates',

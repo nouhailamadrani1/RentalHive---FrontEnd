@@ -1,1 +1,39 @@
-<p>equipments works!</p>
+
+
+<div class="d-flex justify-content-end">
+    <a  routerLink="/Equipments/add"  class="btn btn-primary">Add Equipment</a>
+</div>
+ 
+<div class="container " >
+
+    <h2 class="mt-4">Equipments</h2>
+
+    <div style="max-height: 500px; overflow-y: auto;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>EquipmentType</th>
+            </tr>
+        </thead>
+        
+            <tbody >
+            
+                <tr *ngFor="let equipment of equipments">
+                    <td>{{ equipment.id }}</td>
+                    <td>{{ equipment.name }}</td>
+                    <td>{{ equipment.quantity }}</td>
+                    <td>{{ equipment.price }} Dh</td>
+                    <td>{{ equipment.status }}</td>
+                    <td>{{ equipment.equipmentType }}</td>
+                </tr>
+            </tbody>
+       
+    </table>
+     </div>
+      
+</div>

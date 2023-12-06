@@ -1,0 +1,40 @@
+<form (ngSubmit)="onSubmit()" class="mt-4">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" id="name" [(ngModel)]="equipment.name" name="name" class="form-control" required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantity:</label>
+      <input type="number" id="quantity" [(ngModel)]="equipment.quantity" name="quantity" class="form-control" required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="price" class="form-label">Price:</label>
+      <input type="number" id="price" [(ngModel)]="equipment.price" name="price" class="form-control" required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="status" class="form-label">Status:</label>
+      <select id="status" [(ngModel)]="equipment.status" name="status" class="form-select" required>
+        <option value="BROKEN">BROKEN</option>
+        <option value="RESERVED">RESERVED</option>
+        <option value="AVAILABLE">AVAILABLE</option>
+      </select>
+    </div>
+  
+    <div class="mb-3">
+      <label for="equipmentType" class="form-label">Equipment Type:</label>
+      <select id="equipmentType" [(ngModel)]="equipment.equipmentType" name="equipmentType" class="form-select" required>
+        <option value="Excavation">Excavation</option>
+        <option value="Lifting">Lifting</option>
+        <option value="Compaction">Compaction</option>
+        <option value="Concrete">Concrete</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Drilling">Drilling</option>
+      </select>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+  

@@ -16,6 +16,7 @@ import { ContractsComponent } from './components/dashboard/contracts/contracts.c
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SideBarComponent } from './components/dashboard/side-bar/side-bar.component';
 import { UserFormComponent } from './components/dashboard/user-form/user-form.component';
+import { EquipmentFormComponent } from './components/dashboard/equipment-form/equipment-form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserFormComponent } from './components/dashboard/user-form/user-form.co
     ContractsComponent,
     LandingPageComponent,
     SideBarComponent,
-    UserFormComponent
+    UserFormComponent,
+    EquipmentFormComponent
   ],
   imports: [
     BrowserModule,
