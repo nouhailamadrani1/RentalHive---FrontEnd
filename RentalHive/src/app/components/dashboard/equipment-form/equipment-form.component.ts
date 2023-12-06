@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EquipmentServiceService } from 'src/app/services/EquipmentService/equipment-service.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,10 +15,17 @@ export class EquipmentFormComponent implements OnInit {
 
   constructor(
       private equipmentService: EquipmentServiceService ,    
-      private router: Router
+      private router: Router,
+      private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
+    const id = Number(this.route.snapshot.queryParams['id']);
+    if (id) {
+      this.equipmentService.getEquipmentById(id).subscribe(equipment => {
+        this.equipment = equipment;
+      });
+    }
   }
 
   onSubmit(): void {

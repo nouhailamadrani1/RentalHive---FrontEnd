@@ -19,8 +19,13 @@ const routes: Routes = [
     
     title: 'Equipments Page',
     children: [
-      { path: 'add', component: EquipmentFormComponent, title: 'Add Equipment Page' }
-    ]
+      { path: 'add', component: EquipmentFormComponent, title: 'Add Equipment Page' }]
+  },{
+    path: 'Equipments',
+    
+    title: 'Equipments Page',
+    children: [
+      { path: 'update', component: EquipmentFormComponent, title: 'Update Equipment Page' }]
   },
   {
     path : 'Estimates',

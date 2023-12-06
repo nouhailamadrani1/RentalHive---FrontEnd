@@ -31,7 +31,7 @@
                     <td class="text-center">{{ equipment.status }}</td>
                     <td class="text-center">{{ equipment.equipmentType }}</td>
                     <td class="text-center">
-                        <a class="btn btn-warning">Update</a>
+                        <a class="btn btn-warning" (click)="navigateToUpdate(equipment.id)">Update</a>
                         <button class="btn btn-danger" (click)="deleteEquipment(equipment.id)">Delete</button>
                     </td>
                 </tr>
