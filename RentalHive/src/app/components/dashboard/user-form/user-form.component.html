@@ -1,4 +1,7 @@
-
+<div *ngIf="userAdded" class="alert alert-success alert-dismissible fade show" role="alert">
+    User added successfully!
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
+  </div>
 
 <form>
     <div class="mb-3">
@@ -20,5 +23,6 @@
         <label for="numberPhone" class="form-label">Number Phone</label>
         <input type="text" class="form-control" id="numberPhone" [(ngModel)]="user.numberPhone" name="numberPhone" required>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="addUser()">Submit</button>
+    <button type="submit" class="btn btn-primary mx-2" (click)="addUser()">Submit</button>
+    <a  routerLink="/users"  class="btn btn-white">Users</a>
 </form>

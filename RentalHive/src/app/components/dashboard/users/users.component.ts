@@ -12,6 +12,8 @@ import { Role } from '../../../services/UserService/Role';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
+  searchUserId: number = 0 ; // Initialize with a default value
+  foundUser: User | null = null;
 
   constructor(private userService: UserServiceService) {}
 
@@ -19,7 +21,6 @@ export class UsersComponent implements OnInit {
     // Load users when the component is initialized
     this.loadUsers();
   }
-
 
   private loadUsers(): void {
     // Call the service method to get all users
@@ -36,5 +37,11 @@ export class UsersComponent implements OnInit {
   // Renamed method for clarity
   getReadableUserRole(role: Role): string {
     return role === Role.Client ? 'Client' : 'Manager';
+  }
+
+  // Search user by ID
+  searchUser(): void {
+    // Find the user by ID in the users array
+    this.foundUser = this.users.find(user => user.id === this.searchUserId) || null;
   }
 }

@@ -1,14 +1,31 @@
 <!-- users.component.html -->
+
 <div class="d-flex justify-content-end">
     <a  routerLink="/users/add"  class="btn btn-primary">Add User</a>
 </div>
+  <!-- Search input and button -->
+  <div class="mb-3">
+    <label for="userId" class="form-label">Search by ID:</label>
+    <input type="number" class="form-control" id="userId" [(ngModel)]="searchUserId">
+    <button class="btn btn-primary" (click)="searchUser()">Search</button>
+</div>
+
+<!-- Display user details if found -->
+<div *ngIf="foundUser">
+    <h3>User Details:</h3>
+    <p>ID: {{ foundUser.id }}</p>
+    <p>Name: {{ foundUser.name }}</p>
+    <p>Role: {{ getReadableUserRole(foundUser.role) }}</p>
+    <p>Email: {{ foundUser.email }}</p>
+    <p>Number Phone: {{ foundUser.numberPhone }}</p>
+</div>
 
 
-<div class="container">
+<div class="container " >
 
     <h2 class="mt-4">Users</h2>
 
-    
+    <div style="max-height: 500px; overflow-y: auto;">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -19,15 +36,19 @@
                 <th>Number Phone</th>
             </tr>
         </thead>
-        <tbody>
+        
+            <tbody >
             
-            <tr *ngFor="let user of users">
-                <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ getReadableUserRole(user.role) }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.numberPhone }}</td>
-            </tr>
-        </tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ getReadableUserRole(user.role) }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.numberPhone }}</td>
+                </tr>
+            </tbody>
+       
     </table>
+     </div>
+      
 </div>
