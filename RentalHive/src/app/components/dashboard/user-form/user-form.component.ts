@@ -1,8 +1,8 @@
-
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../../../services/UserService/user-service.service'; 
 import { User } from '../../../services/UserService/User'; 
 import { Role } from '../../../services/UserService/Role'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -18,17 +18,24 @@ export class UserFormComponent {
     numberPhone: '',
   };
 
-  constructor(private userService: UserServiceService) {}
+  userAdded: boolean = false;
+
+  constructor(private userService: UserServiceService, private router: Router) {}
 
   addUser(): void {
     this.userService.addUser(this.user).subscribe(
       (newUser) => {
         console.log('User added successfully:', newUser);
-        // Optionally, you can redirect to the users list page or perform other actions.
+        this.userAdded = true;
+        // this.router.navigate(['/users']);
       },
       (error) => {
         console.error('Error adding user:', error);
       }
     );
+  }
+
+  closeAlert(): void {
+    this.userAdded = false;
   }
 }
