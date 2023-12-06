@@ -1,1 +1,43 @@
-<p>equipments works!</p>
+
+
+<div class="d-flex justify-content-end">
+    <a  routerLink="/Equipments/add"  class="btn btn-primary">Add Equipment</a>
+</div>
+ 
+<div class="container " >
+
+    <h2 class="mt-4">Equipments</h2>
+
+    <div style="max-height: 500px; overflow-y: auto;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">EquipmentType</th>
+                <th class="text-center">Operations</th>
+            </tr>
+        </thead>
+        
+            <tbody >
+                <tr *ngFor="let equipment of equipments">
+                    <td class="text-center">{{ equipment.id }}</td>
+                    <td class="text-center">{{ equipment.name }}</td>
+                    <td class="text-center">{{ equipment.quantity }}</td>
+                    <td class="text-center">{{ equipment.price }} Dh</td>
+                    <td class="text-center">{{ equipment.status }}</td>
+                    <td class="text-center">{{ equipment.equipmentType }}</td>
+                    <td class="text-center">
+                        <a class="btn btn-warning" (click)="navigateToUpdate(equipment.id)">Update</a>
+                        <button class="btn btn-danger" (click)="deleteEquipment(equipment.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+       
+    </table>
+     </div>
+      
+</div>

@@ -18,6 +18,7 @@ import { SideBarComponent } from './components/dashboard/side-bar/side-bar.compo
 import { UserFormComponent } from './components/dashboard/user-form/user-form.component';
 import { RentalRequestFormComponent } from './components/rental-request-form/rental-request-form.component';
 import { RentalRequestListComponent } from './components/rental-request-list/rental-request-list.component';
+import { EquipmentFormComponent } from './components/dashboard/equipment-form/equipment-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RentalRequestListComponent } from './components/rental-request-list/ren
     SideBarComponent,
     UserFormComponent,
     RentalRequestFormComponent,
-    RentalRequestListComponent
+    RentalRequestListComponent,
+    EquipmentFormComponent
   ],
   imports: [
     BrowserModule,
