@@ -12,24 +12,28 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Status</th>
-                <th>EquipmentType</th>
+                <th class="text-center">ID</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">EquipmentType</th>
+                <th class="text-center">Operations</th>
             </tr>
         </thead>
         
             <tbody >
-            
                 <tr *ngFor="let equipment of equipments">
-                    <td>{{ equipment.id }}</td>
-                    <td>{{ equipment.name }}</td>
-                    <td>{{ equipment.quantity }}</td>
-                    <td>{{ equipment.price }} Dh</td>
-                    <td>{{ equipment.status }}</td>
-                    <td>{{ equipment.equipmentType }}</td>
+                    <td class="text-center">{{ equipment.id }}</td>
+                    <td class="text-center">{{ equipment.name }}</td>
+                    <td class="text-center">{{ equipment.quantity }}</td>
+                    <td class="text-center">{{ equipment.price }} Dh</td>
+                    <td class="text-center">{{ equipment.status }}</td>
+                    <td class="text-center">{{ equipment.equipmentType }}</td>
+                    <td class="text-center">
+                        <a class="btn btn-warning">Update</a>
+                        <button class="btn btn-danger" (click)="deleteEquipment(equipment.id)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
        

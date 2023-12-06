@@ -43,9 +43,9 @@ export class EquipmentsComponent implements OnInit {
   }
 
   deleteEquipment(id: number): void {
+    console.log(id);
     this.equipmentService.deleteEquipment(id).subscribe(() => {
       this.loadEquipments();
-      this.selectedEquipment = {}; // clear the form
     });
   }
 }
