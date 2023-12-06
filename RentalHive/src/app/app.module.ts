@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,8 +15,7 @@ import { UsersComponent } from './components/dashboard/users/users.component';
 import { ContractsComponent } from './components/dashboard/contracts/contracts.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SideBarComponent } from './components/dashboard/side-bar/side-bar.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import { UserFormComponent } from './components/dashboard/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { HttpClientModule } from '@angular/common/http';
     UsersComponent,
     ContractsComponent,
     LandingPageComponent,
-    SideBarComponent
+    SideBarComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

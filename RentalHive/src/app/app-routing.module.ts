@@ -4,6 +4,8 @@ import { EquipmentsComponent } from './components/dashboard/equipments/equipment
 import { Title } from '@angular/platform-browser';
 import { EstimatesComponent } from './components/dashboard/estimates/estimates.component';
 import { UsersComponent } from './components/dashboard/users/users.component';
+import { UserFormComponent } from './components/dashboard/user-form/user-form.component';
+
 
 
 const routes: Routes = [
@@ -20,7 +22,20 @@ const routes: Routes = [
   { path: 'users',
    component: UsersComponent,
    title : 'Users Page'
-  }
+  },
+  {
+    path: 'users',
+    
+    title: 'Users Page',
+    children: [
+      { path: 'add', component: UserFormComponent, title: 'Add User Page' }
+    ]
+  },
+  // {
+  //   path: 'users/add',
+  //   component: UserFormComponent,
+  //   title: 'Add User Page'
+  // }
 
 ];
 
