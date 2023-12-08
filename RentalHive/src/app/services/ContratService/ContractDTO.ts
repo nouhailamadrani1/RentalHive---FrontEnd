@@ -7,5 +7,5 @@ export interface ContractDTO {
     clientPhone: string;
     equipmentName: string;
     equipmentType: string;
-    id?: number; // Assuming you have an ID property
+    estimatedId: number;
   }

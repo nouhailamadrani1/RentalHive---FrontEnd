@@ -1,5 +1,4 @@
-// contracts.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ContratServiceService } from '../../../services/ContratService/contrat-service.service';
 import { ContractDTO } from '../../../services/ContratService/ContractDTO';
 
@@ -12,10 +11,11 @@ export class ContractsComponent implements OnInit {
   clientId: number = 2;
   approvedContracts: ContractDTO[] = [];
   nonArchivedContracts: ContractDTO[] = [];
-  
-  searchClientId: number = 2;
 
-  constructor(private ContratServiceService: ContratServiceService) {}
+  searchClientId: number = 2;
+  alertMessage: string | null = null;
+
+  constructor(private ContratServiceService: ContratServiceService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.loadApprovedContracts();
@@ -45,25 +45,27 @@ export class ContractsComponent implements OnInit {
     this.ContratServiceService.getAllNonArchivedEstimatesForClient(this.clientId).subscribe(
       (contracts) => {
         this.nonArchivedContracts = contracts;
+        this.cdr.detectChanges(); // Explicitly run change detection
       },
       (error: any) => {
         console.error('Error loading non-archived contracts:', error);
       }
     );
   }
-  archiveContract(id: number | undefined): void {
+
+  archiveContract(id: number ): void {
     if (id) {
-      this.ContratServiceService.archiveContract(id).subscribe(
-        (response) => {
-          console.log(response);
-          // Refresh the contracts after archiving
-          this.loadNonArchivedContracts();
-        },
-        (error: any) => {
-          console.error('Error archiving contract:', error);
-        }
-      );
+        this.ContratServiceService.archiveContract(id).subscribe(
+            (response) => {
+             
+                this.loadNonArchivedContracts();
+            },
+            (message) => {
+              // Success response, show alert
+              this.alertMessage = message;
+              // Optionally, you can update your contract list or perform other actions
+            },
+        );
     }
-  }
-  
+}
 }

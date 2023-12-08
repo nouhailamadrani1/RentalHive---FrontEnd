@@ -1,51 +1,67 @@
-<!-- contracts.component.html -->
 <h5 class="form-label  " for="searchClientId">Search Client ID: </h5>
 <div class="my-3 d-flex justify-content-center  ">
     <input class="form-control mx-2 w-50 border-bottom border-0 border-primary border-3" type="number" id="searchClientId" [(ngModel)]="searchClientId" />
     <button  class="btn btn-outline-primary" (click)="searchContracts()">Search</button>
-  </div>
-  
-  <div>
+</div>
+
+<div>
     <h2>Approved Contracts</h2>
     <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Estimated Cost</th>
-          <th>Client Name</th>
-          <th>Client Email</th>
-          <th>Client Phone</th>
-          <th>Equipment Name</th>
-          <th>Equipment Type</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let contract of approvedContracts">
-          <td>{{ contract.title }}</td>
-          <td>{{ contract.estimatedCost }}</td>
-          <td>{{ contract.clientName }}</td>
-          <td>{{ contract.clientEmail }}</td>
-          <td>{{ contract.clientPhone }}</td>
-          <td>{{ contract.equipmentName }}</td>
-          <td>{{ contract.equipmentType }}</td>
-          <td>
-            <button class="btn btn-primary" >Print PDF</button>
-          </td>
-        </tr>
-      </tbody>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Estimated Cost</th>
+                <th>Client Name</th>
+                <th>Client Email</th>
+                <th>Client Phone</th>
+                <th>Equipment Name</th>
+                <th>Equipment Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contract of approvedContracts">
+                <td>{{ contract.title }}</td>
+                <td>{{ contract.estimatedCost }}</td>
+                <td>{{ contract.clientName }}</td>
+                <td>{{ contract.clientEmail }}</td>
+                <td>{{ contract.clientPhone }}</td>
+                <td>{{ contract.equipmentName }}</td>
+                <td>{{ contract.equipmentType }}</td>
+                <td>
+                    <button class="btn btn-primary" >Print PDF</button>
+                </td>
+            </tr>
+        </tbody>
     </table>
-  </div>
-  
-  
-  <div>
+</div>
+<div *ngIf="alertMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+ Contract archive
+  <button type="button" class="close" (click)="alertMessage = null" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="container">
     <h2>Non-Archived Contracts</h2>
-    <ul>
-      <li *ngFor="let contract of nonArchivedContracts">
-        {{ contract.title }}
-        <button *ngIf="contract.id" (click)="archiveContract(contract.id)">Archive</button>
-
-      </li>
-    </ul>
-  </div>
-  
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>client Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contract of nonArchivedContracts">
+              <td>{{ contract.title }}</td>
+           
+              <td>{{ contract.clientName}}</td>
+             
+              <td>
+                  <button class="btn btn-danger" (click)="archiveContract(contract.estimatedId)">Archive</button>
+              </td>
+          </tr>
+      </tbody>
+      
+    </table>
+</div>
