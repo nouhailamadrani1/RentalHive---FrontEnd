@@ -6,6 +6,8 @@ import { EstimatesComponent } from './components/dashboard/estimates/estimates.c
 import { UsersComponent } from './components/dashboard/users/users.component';
 import { UserFormComponent } from './components/dashboard/user-form/user-form.component';
 import { ContractsComponent } from './components/dashboard/contracts/contracts.component';
+import { RentalRequestFormComponent } from './components/rental-request-form/rental-request-form.component';
+import { RentalRequestListComponent } from './components/rental-request-list/rental-request-list.component';
 
 
 
@@ -31,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    
+
     title: 'Users Page',
     children: [
       { path: 'add', component: UserFormComponent, title: 'Add User Page' }
@@ -42,6 +44,25 @@ const routes: Routes = [
   //   component: UserFormComponent,
   //   title: 'Add User Page'
   // }
+  {
+    path: 'rentalrequest',
+    component: RentalRequestListComponent
+  },
+  {
+    path: 'rentalrequest',
+    children: [
+      { path: 'add',
+        component: RentalRequestFormComponent,
+        title: 'Add Rental Request Page'
+      },
+      {
+        path: ':id',
+        component: RentalRequestFormComponent,
+        title: 'Edit Rental Request Page'
+      }
+    ]
+  },
+
 
 ];
 

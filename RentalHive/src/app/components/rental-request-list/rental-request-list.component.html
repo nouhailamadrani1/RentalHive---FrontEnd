@@ -1,0 +1,48 @@
+<!-- <div class="container"> -->
+
+<div class="d-flex justify-content-end">
+  <a  routerLink="/rentalrequest/add"  class="btn btn-primary">Add User</a>
+</div>
+
+<div>
+  All Rental Requests
+</div>
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Start date</th>
+        <th scope="col">End date</th>
+        <th scope="col">Equipment name</th>
+        <th scope="col">Client name</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr> for each rentalrequests -->
+      <tr *ngFor="let rentalrequest of rentalRequests">
+        <th scope="row">{{rentalrequest.id}}</th>
+        <td>{{rentalrequest.start_date | date : 'shortDate'}}</td>
+        <td>{{rentalrequest.end_date | date : 'shortDate'}}</td>
+        <td>{{rentalrequest.equipment.name}}</td>
+        <td>{{rentalrequest.client.name}}</td>
+        <td>{{rentalrequest.rentalRequestStatus}}</td>
+        <td >
+          <a routerLink="/rentalrequest/{{rentalrequest.id}}" class="btn btn-primary">Edit</a>
+          <a (click)="delete(rentalrequest.id)" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<!-- </div> -->

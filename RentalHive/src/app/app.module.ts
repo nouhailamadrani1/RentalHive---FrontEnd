@@ -16,6 +16,9 @@ import { ContractsComponent } from './components/dashboard/contracts/contracts.c
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SideBarComponent } from './components/dashboard/side-bar/side-bar.component';
 import { UserFormComponent } from './components/dashboard/user-form/user-form.component';
+import { RentalRequestFormComponent } from './components/rental-request-form/rental-request-form.component';
+import { RentalRequestListComponent } from './components/rental-request-list/rental-request-list.component';
+import { EquipmentFormComponent } from './components/dashboard/equipment-form/equipment-form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { UserFormComponent } from './components/dashboard/user-form/user-form.co
     ContractsComponent,
     LandingPageComponent,
     SideBarComponent,
-    UserFormComponent
+    UserFormComponent,
+    RentalRequestFormComponent,
+    RentalRequestListComponent,
+    EquipmentFormComponent
   ],
   imports: [
     BrowserModule,
