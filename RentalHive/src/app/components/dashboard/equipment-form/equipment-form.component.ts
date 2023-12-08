@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EquipmentFormComponent implements OnInit {
   @Input() equipment: any = {};
-  @Output() saveEquipment = new EventEmitter<any>();
 
   isAdding: boolean = false;
 

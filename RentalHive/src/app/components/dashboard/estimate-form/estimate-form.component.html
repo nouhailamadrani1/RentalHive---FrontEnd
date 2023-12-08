@@ -1,1 +1,19 @@
-<p>estimate-form works!</p>
+<form (ngSubmit)="onSubmit()" class="mt-4">
+  
+    <div class="mb-3">
+        <label for="rentalRequest">Rental Request:</label>
+        <select id="rentalRequest" class="form-select" [(ngModel)]="estimate.rentalRequestId" name="rentalRequestId" required>
+          <option *ngFor="let request of rentalRequests" [value]="request.id">{{ request.name }}</option>
+        </select>
+      </div>
+    
+      <div class="mb-3">
+        <label for="user">User:</label>
+        <select id="user" class="form-select" [(ngModel)]="estimate.userId" name="userId" required>
+          <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+        </select>
+      </div>
+  
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+  
