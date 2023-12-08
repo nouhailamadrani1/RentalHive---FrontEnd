@@ -13,6 +13,7 @@ export class EstimateFormComponent {
 
   estimate: any = {};
   addEstimate:any = {};
+  updateEstimate:any = {};
   users:any = [];
   rentalRequests:any = [];
   isAdding: boolean = false;
@@ -49,7 +50,7 @@ export class EstimateFormComponent {
             "id": this.estimate.userId
         } 
         }
-        
+
       console.log(this.estimate.userId, this.estimate.rentalRequestId);
       console.log(this.addEstimate);
 
@@ -63,7 +64,19 @@ export class EstimateFormComponent {
         }
       );
     } else {
-      this.estimateService.updateEstimate(this.estimate.id, this.estimate).subscribe(
+      this.updateEstimate = {
+        "rentalRequest": {
+            "id" : 14
+        },
+        "admin": {
+            "id": 2
+        } ,
+        "estimatedCost": 700.0 ,
+        "estimateStatus" : "Approved"
+    
+      }
+
+      this.estimateService.updateEstimate(this.estimate.id, this.updateEstimate).subscribe(
         response => {
           console.log('Estimate updated successefully');
           this.router.navigate(['/Estimates']);
