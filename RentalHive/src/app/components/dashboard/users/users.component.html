@@ -4,28 +4,15 @@
     <a  routerLink="/users/add"  class="btn btn-primary">Add User</a>
 </div>
   <!-- Search input and button -->
-  <div class="mb-3">
-    <label for="userId" class="form-label">Search by ID:</label>
-    <input type="number" class="form-control" id="userId" [(ngModel)]="searchUserId">
-    <button class="btn btn-primary" (click)="searchUser()">Search</button>
+ 
+    <h5 for="userId" class="form-label  ">Search by ID:</h5>
+    <div class="my-3 d-flex justify-content-center  ">
+    <input type="number" class="form-control mx-2 w-50 border-bottom border-0 border-primary border-3" id="userId" [(ngModel)]="searchUserId">
+    <button class="btn btn-outline-primary" (click)="searchUser()">Search</button>
 </div>
 
 <!-- Display user details if found -->
 <div *ngIf="foundUser">
-    <h3>User Details:</h3>
-    <p>ID: {{ foundUser.id }}</p>
-    <p>Name: {{ foundUser.name }}</p>
-    <p>Role: {{ getReadableUserRole(foundUser.role) }}</p>
-    <p>Email: {{ foundUser.email }}</p>
-    <p>Number Phone: {{ foundUser.numberPhone }}</p>
-</div>
-
-
-<div class="container " >
-
-    <h2 class="mt-4">Users</h2>
-
-    <div style="max-height: 500px; overflow-y: auto;">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -34,6 +21,43 @@
                 <th>Role</th>
                 <th>Email</th>
                 <th>Number Phone</th>
+                <!-- <th>Action</th> -->
+            </tr>
+           
+        </thead>
+        <tbody >
+            
+            <tr >
+                <td>{{ foundUser.id }}</td>
+                <td>{{ foundUser.name }}</td>
+                <td>{{ getReadableUserRole(foundUser.role) }}</td>
+                <td>{{ foundUser.email }}</td>
+                <td>{{ foundUser.numberPhone }}</td>
+                <!-- <td>
+                    <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">Delete</button>
+                </td> -->
+            </tr>
+        </tbody>
+   
+</table>
+ 
+</div>
+
+
+<div class="container " >
+
+    <h4 class="mt-4">Users</h4>
+
+    <div style="max-height: 300px; overflow-y: auto;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Number Phone</th>
+                <!-- <th>Action</th> -->
             </tr>
         </thead>
         
@@ -45,6 +69,9 @@
                     <td>{{ getReadableUserRole(user.role) }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.numberPhone }}</td>
+                    <!-- <td>
+                        <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">Delete</button>
+                    </td> -->
                 </tr>
             </tbody>
        

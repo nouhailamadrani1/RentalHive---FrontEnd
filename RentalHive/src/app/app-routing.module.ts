@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { EstimatesComponent } from './components/dashboard/estimates/estimates.component';
 import { UsersComponent } from './components/dashboard/users/users.component';
 import { UserFormComponent } from './components/dashboard/user-form/user-form.component';
+import { ContractsComponent } from './components/dashboard/contracts/contracts.component';
 
 
 
@@ -18,6 +19,11 @@ const routes: Routes = [
     path : 'Estimates',
     component : EstimatesComponent,
     title : 'Estimates Page'
+  },
+  {
+    path : 'contracts',
+    component : ContractsComponent,
+    title : 'contracts Page'
   },
   { path: 'users',
    component: UsersComponent,

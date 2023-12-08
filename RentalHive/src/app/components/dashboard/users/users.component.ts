@@ -44,4 +44,17 @@ export class UsersComponent implements OnInit {
     // Find the user by ID in the users array
     this.foundUser = this.users.find(user => user.id === this.searchUserId) || null;
   }
+  deleteUser(userId: number): void {
+    // Call the service method to delete the user
+    this.userService.deleteUser(userId).subscribe(
+        () => {
+            // Remove the user from the local users array
+            this.users = this.users.filter(user => user.id !== userId)
+        },
+        (error: any) => {
+            console.error('Error deleting user:', error);
+        }
+    );
+}
+
 }
