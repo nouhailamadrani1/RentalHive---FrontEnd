@@ -9,6 +9,7 @@ import { RentalRequestFormComponent } from './components/rental-request-form/ren
 import { RentalRequestListComponent } from './components/rental-request-list/rental-request-list.component';
 
 import { EquipmentFormComponent } from './components/dashboard/equipment-form/equipment-form.component';
+import { EstimateFormComponent } from './components/dashboard/estimate-form/estimate-form.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,18 @@ const routes: Routes = [
     path : 'Estimates',
     component : EstimatesComponent,
     title : 'Estimates Page'
+  },{
+    path: 'Estimates',
+    
+    title: 'Estimates Page',
+    children: [
+      { path: 'add', component: EstimateFormComponent, title: 'Add Estimate Page' }]
+  },{
+    path: 'Estimates',
+    
+    title: 'Estimates Page',
+    children: [
+      { path: 'update', component: EstimateFormComponent, title: 'Update Estimate Page' }]
   },
   { path: 'users',
    component: UsersComponent,
