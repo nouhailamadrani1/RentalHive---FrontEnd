@@ -8,6 +8,7 @@ import { UserFormComponent } from './components/dashboard/user-form/user-form.co
 import { RentalRequestFormComponent } from './components/rental-request-form/rental-request-form.component';
 import { RentalRequestListComponent } from './components/rental-request-list/rental-request-list.component';
 
+import { EquipmentFormComponent } from './components/dashboard/equipment-form/equipment-form.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,18 @@ const routes: Routes = [
     path : 'Equipments',
     component : EquipmentsComponent ,
     title : 'Equipments Page'
+  },{
+    path: 'Equipments',
+    
+    title: 'Equipments Page',
+    children: [
+      { path: 'add', component: EquipmentFormComponent, title: 'Add Equipment Page' }]
+  },{
+    path: 'Equipments',
+    
+    title: 'Equipments Page',
+    children: [
+      { path: 'update', component: EquipmentFormComponent, title: 'Update Equipment Page' }]
   },
   {
     path : 'Estimates',
@@ -33,11 +46,6 @@ const routes: Routes = [
       { path: 'add', component: UserFormComponent, title: 'Add User Page' }
     ]
   },
-  // {
-  //   path: 'users/add',
-  //   component: UserFormComponent,
-  //   title: 'Add User Page'
-  // }
   {
     path: 'rentalrequest',
     component: RentalRequestListComponent
