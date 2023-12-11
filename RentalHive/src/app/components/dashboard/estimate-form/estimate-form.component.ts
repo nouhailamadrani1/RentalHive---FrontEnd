@@ -66,16 +66,17 @@ export class EstimateFormComponent {
     } else {
       this.updateEstimate = {
         "rentalRequest": {
-            "id" : 14
+            "id" : this.estimate.rentalRequest.id
         },
         "admin": {
-            "id": 2
+            "id": this.estimate.rentalRequest.client.id
         } ,
-        "estimatedCost": 700.0 ,
-        "estimateStatus" : "Approved"
+        "estimatedCost": this.estimate.estimatedCost,
+        "estimateStatus" : this.estimate.estimateStatus
     
       }
 
+      console.log(this.updateEstimate);
       this.estimateService.updateEstimate(this.estimate.id, this.updateEstimate).subscribe(
         response => {
           console.log('Estimate updated successefully');

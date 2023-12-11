@@ -21,8 +21,8 @@
       </div>
 
       <div class="mb-3" *ngIf="!isAdding">
-        <label for="userId">User Id:</label>
-        <input type="number" id="userId"  name="userId" class="form-control" required>
+        <label for="adminId">Admin Id:</label>
+        <input type="number" id="adminId" [(ngModel)]="estimate.rentalRequest.client.id" name="adminId" class="form-control" required>
       </div>
 
 
