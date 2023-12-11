@@ -19,6 +19,7 @@ import { UserFormComponent } from './components/dashboard/user-form/user-form.co
 import { RentalRequestFormComponent } from './components/rental-request-form/rental-request-form.component';
 import { RentalRequestListComponent } from './components/rental-request-list/rental-request-list.component';
 import { EquipmentFormComponent } from './components/dashboard/equipment-form/equipment-form.component';
+import { EstimateFormComponent } from './components/dashboard/estimate-form/estimate-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EquipmentFormComponent } from './components/dashboard/equipment-form/eq
     UserFormComponent,
     RentalRequestFormComponent,
     RentalRequestListComponent,
-    EquipmentFormComponent
+    EquipmentFormComponent,
+    EstimateFormComponent
   ],
   imports: [
     BrowserModule,

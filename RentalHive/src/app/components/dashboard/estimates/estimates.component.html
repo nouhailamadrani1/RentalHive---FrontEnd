@@ -1,1 +1,42 @@
-<p>estimates works!</p>
+
+
+<div class="d-flex justify-content-end">
+    <a  routerLink="/Estimates/add"  class="btn btn-primary">Add Estimate</a>
+</div>
+ 
+<div class="container " >
+
+    <h2 class="mt-4">Estimates</h2>
+
+    <div style="max-height: 500px; overflow-y: auto;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">Estimated Cost</th>
+                <th class="text-center">Estimate Status</th>
+                <th class="text-center">RentalRequest Id</th>
+                <th class="text-center">RentalRequest Name</th>
+                <th class="text-center">Client Name</th>
+            </tr>
+        </thead>
+        
+            <tbody >
+                <tr *ngFor="let estimate of estimates">
+                    <td class="text-center">{{ estimate.id }}</td>
+                    <td class="text-center">{{ estimate.estimatedCost }} Dh</td>
+                    <td class="text-center ">{{ estimate.estimateStatus }}</td>
+                    <td class="text-center">{{ estimate.rentalRequest.id }}</td>
+                    <td class="text-center">{{ estimate.rentalRequest.name }}</td>
+                    <td class="text-center">{{ estimate.rentalRequest.client.name }}</td>
+                    <td class="text-center">
+                        <a class="btn btn-warning" (click)="navigateToUpdate(estimate.id)">Update</a>
+                        <button class="btn btn-danger" (click)="deleteEstimate(estimate.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+       
+    </table>
+     </div>
+      
+</div>
